@@ -1,0 +1,130 @@
+{
+        "_id" : "16R11A05K2",
+        "name" : "Moulika",
+        "class" : 4,
+        "branch" : "CSE",
+        "section" : "D",
+        "firstyr" :
+            [
+                {"sub" : "english","grade" : 9},
+                {"sub" : "math","grade" : 9 },
+                {"sub" : "physics","grade" : 8},
+                {"sub" : "drawing","grade" : 9}
+             ]
+}
+
+
+
+{
+        "_id" : "16R11A0555",
+        "name" : "ABCDE",
+        "class" : 4,
+        "branch" : "CSE",
+        "section" : "E",
+        "firstyr" :
+            [
+                {"sub" : "english","grade" : 7,supply:[5,7]},
+                {"sub" : "math","grade" : 7},
+                {"sub" : "physics","grade" : 8},
+                {"sub" : "drawing","grade" : 8}
+             ]
+}
+
+
+
+
+{
+        "_id" : "16R11A0555",
+        "name" : "ABCDE",
+        "class" : 4,
+        "branch" : "CSE",
+        "section" : "E",
+        "firstyr" :
+            [
+                {"sub" : "english","grade" : 7,supply:[5,7]},
+                {"sub" : "math","grade" : 7},
+                {"sub" : "physics","grade" : 8},
+                {"sub" : "drawing","grade" : 8},
+                {"sub" : "cgpa","grade" : 7.6}
+             ]
+}
+
+
+
+
+
+
+
+
+try {
+   db.results.insertMany( [
+{
+        "rollno" : "16R11A0555",
+        "name" : "ABCDE",
+        "class" : 4,
+        "branch" : "CSE",
+        "section" : "E"
+},
+
+{
+       "rollno" : "16R11A0555",
+       "course_name" : "English",
+       "grade" : 8,
+       "name_of_exam" : "regular",
+       "year" : "March-2017",
+       ""
+},
+{
+       "rollno" : "16R11A0555",
+       "course_name" : "Physics",
+       "grade" : 8,
+       "name_of_exam" : "regular",
+       "year" : "March-2017"
+},
+
+{
+       "rollno" : "16R11A0555",
+       "course_name" : "Drawing",
+       "grade" : 4,
+       "name_of_exam" : "regular",
+       "year" : "March-2017",
+       "sem" : 1
+},
+{
+       "rollno" : "16R11A0555",
+       "course_name" : "Math",
+       "grade" : 4,
+       "name_of_exam" : "regular",
+       "year" : "March-2017"
+},
+{
+       "rollno" : "16R11A0555",
+       "course_name" : "Math",
+       "grade" : 5,
+       "name_of_exam" : "supply",
+       "year" : "March-2018"
+},
+{
+       "rollno" : "16R11A0555",
+       "course_name" : "Math",
+       "grade" : 7,
+       "name_of_exam" : "supply",
+       "year" : "March-2019"
+}] );
+} catch (e) {
+   print (e);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Student Details Application</title>
+  </head>
+  <style>
+  /*table {
+  border-collapse: collapse; 
+  } 
+
+#content {
+    position: relative;
+}*/
+#content img {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+}
+  th,td {
+  border: 1px solid black;
+  }
+
+.list{
+  list-style: none
+}
+  .column {
+  float: left;
+  width: 12.5%;
+  padding: 10px;
+}
+.nopadding {
+   
+   margin: 0 !important;
+}
+
+  table.sem1 {
+    float:left;
+    margin-left:2px;
+    table-layout:fixed;
+    text-align: left;
+    padding: 0 !important;
+  }
+  </style>
+  <body>
+        <div class="input-group mb-3">
+                <input type="text" class="form-control" id="roll_no" placeholder="Roll Number" aria-label="Roll Number" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" onclick="getdetails()">Search</button>
+                </div>
+              </div>
+        <div class="container" >
+            <ul class="list-group" id="display">
+            </ul>
+        </div> 
+        <br>                   
+        </div>
+        <div id="content" style="display:none;">
+        </div>
+        <div id="markshead" style="display: none;text-align: center;" ><h4>SEMESTERS</h4></div>
+        <div class = "container" id="marks" >
+                <div class="row"  display: inline-block; >
+                        <article class="column nopadding"   style="display:none;" id="semester1">
+                          <h6 id="display1" onmouseover="showDiv('firstsem',event)"  onmouseout="document.getElementById('firstsem').style.display = 'none';">Semester 1</h6>
+                          <p>
+                           <table  class="sem1" style="display:none;" id="firstsem"  >
+                                  <tr>
+                                      <th>Subject</th>
+                                      <th>Grade</th>
+                                      <th># of Attempts</th>
+                                      <th>PassedInYear  </th>
+                                  </tr>
+                            </table>
+                            </p>
+                        </article>              
+                        <article class="column nopadding" style="display:none" id="semester2">
+                          <h6 id="display2" onmouseover="showDiv('secondsem',event)"  onmouseout="document.getElementById('secondsem').style.display = 'none';">Semester 2</h6>
+                          
+                                <p>
+                                 <table  class="sem1" style="display:none;" id="secondsem" >
+                                      <thead>
+                                        <tr>
+                                            <th>Subject</th>
+                                            <th>Grade</th>
+                                            <th># of Attempts</th>
+                                            <th>PassedInYear  </th>
+                                        </tr>
+                                      </thead>
+                                  </table>
+                                  </p>
+                              </article>
+            
+                              <article class="column nopadding" style="display:none" id="semester3">
+                                <h6 id="display3" onmouseover="showDiv('thirdsem',event)"  onmouseout="document.getElementById('thirdsem').style.display = 'none';">Semester 3</h6>
+                          
+                                    <p>
+                                     <table  class="sem1" style="display:none;"  id="thirdsem" >
+                                          <thead>
+                                            <tr>
+                                                <th>Subject</th>
+                                                <th>Grade</th>
+                                                <th># of Attempts</th>
+                                                <th>PassedInYear  </th>
+                                            </tr>
+                                          </thead>
+                                      </table>
+                                      </p>
+                                  </article> 
+                                  <article class="column nopadding" style="display:none" id="semester4">
+                                    <h6 id="display4" onmouseover="showDiv('fourthsem',event)"  onmouseout="document.getElementById('fourthsem').style.display = 'none';">Semester 4</h6>
+                          
+                                        <p>
+                                         <table  class="sem1" style="display:none;" id="fourthsem" >
+                                              <thead>
+                                                <tr>
+                                                    <th>Subject</th>
+                                                    <th>Grade</th>
+                                                    <th># of Attempts</th>
+                                                    <th>PassedInYear  </th>
+                                                </tr>
+                                              </thead>
+                                          </table>
+                                          </p>
+                                      </article>
+                                      
+                
+                        <article class="column" style="display:none" id="semester5">
+                          <h6 id="display5" onmouseover="showDiv('fifthsem',event)"  onmouseout="document.getElementById('fifthsem').style.display = 'none';">Semester 5</h6>
+                          
+                          <p>
+                           <table  class="sem1" style="display:none;" id="fifthsem" >
+                                <thead>
+                                  <tr>
+                                      <th>Subject</th>
+                                      <th>Grade</th>
+                                      <th># of Attempts</th>
+                                      <th>PassedInYear  </th>
+                                  </tr>
+                                </thead>
+                            </table>
+                            </p>
+                        </article>
+                        <article class="column" style="display:none" id="semester6">
+                          <h6 id="display6" onmouseover="showDiv('sixthsem',event)"  onmouseout="document.getElementById('sixthsem').style.display = 'none';">Semester 6</h6>
+                          
+                                <p>
+                                 <table  class="sem1" style="display:none;" id="sixthsem" >
+                                      <thead>
+                                        <tr>
+                                            <th>Subject</th>
+                                            <th>Grade</th>
+                                            <th># of Attempts</th>
+                                            <th>PassedInYear  </th>
+                                        </tr>
+                                      </thead>
+                                  </table>
+                                  </p>
+                              </article>
+                             
+                              <article class="column" style="display:none" id="semester7">
+                                <h6 id="display7" onmouseover="showDiv('seventhsem',event)"  onmouseout="document.getElementById('seventhsem').style.display = 'none';">Semester 7</h6>
+                          
+                                    <p>
+                                     <table  class="sem1" style="display:none;" id="seventhsem" >
+                                          <thead>
+                                            <tr >
+                                                <th>Subject</th>
+                                                <th>Grade</th>
+                                                <th># of Attempts</th>
+                                                <th>PassedInYear  </th>
+                                            </tr>
+                                          </thead>
+                                      </table>
+                                      </p>
+                                  </article> 
+                                  <article class="column" style="display:none" id="semester8">
+                                    <h6 id="display8" onmouseover="showDiv('eightsem',event)"  onmouseout="document.getElementById('eightsem').style.display = 'none';">Semester 8</h6>
+                          
+                                        <p>
+                                         <table  class="sem1" style="display:none;" id="eightsem" >
+                                              <thead>
+                                                <tr>
+                                                    <th>Subject</th>
+                                                    <th>Grade</th>
+                                                    <th># of Attempts</th>
+                                                    <th>PassedInYear  </th>
+                                                </tr>
+                                              </thead>
+                                          </table>
+                                          </p>
+                                      </article>    
+                </div>
+                
+        </div>
+        <br/>
+       <!-- <div id="feehead" style="display: none;margin-left: 47%" >
+                <h4 id="display10" onmouseover="showDiv('feetable',event)"  onmouseout="document.getElementById('feetable').style.display = 'none';">FEE DUES</h4>   
+                <table  class="sem1" style="display:none;" id="feetable" >
+                        <th>The Fee Dues</th>
+                </table>
+            </div>
+        
+        <br/>
+        <div id="achead" style="display: none;margin-left: 45%" >
+                <h4 id="display9" onmouseover="showDiv('actable',event)"  onmouseout="document.getElementById('actable').style.display = 'none';">ACHIEVEMENTS</h4>   
+                <table  class="sem1" style="display:none;" id="acstable" >
+                    <th>Achievements</th>
+                </table>
+            </div>
+            <br/>
+            <div id="dishead" style="display: none;margin-left: 43%;width: 50%" >
+                    <h4 id="display9" onmouseover="showDiv('distable',event)"  onmouseout="document.getElementById('distable').style.display = 'none';">DISIPLINARY ACTION</h4>   
+                    <table  class="sem1" style="display:none;" id="distable" >
+                        <th>Actions Taken</th>
+                    </table>
+                </div>
+        <div>-->
+            <div class = "container">
+                <div class="row" style="display:none"  id="alltables" >
+                    <article class="column" style="width: 38%"  >
+                        <h4 id="display9" onmouseover="showDiv('distable',event)"  onmouseout="document.getElementById('distable').style.display = 'none';"> DISCIPLINARY ACTION</h4>   
+                        <table  class="sem1" style="display:none;" id="distable" >
+                            <th>Actions Taken</th>
+                        </table>
+                    </article>
+                    <article class="column" style="width: 32%">
+                        <h4 id="display11" onmouseover="showDiv('actable',event)"  onmouseout="document.getElementById('actable').style.display = 'none';">ACHIEVEMENTS</h4>   
+                        <table  class="sem1" style="display:none;" id="actable" >
+                                <th>Achievements</th>
+                        </table>
+                    </article>
+                    <article class="column" style="width: 30%" >
+                            <h4 id="display10" onmouseover="showDiv('feetable',event)"  onmouseout="document.getElementById('feetable').style.display = 'none';">FEE DUES</h4>   
+                            <table  class="sem1" style="display:none;" id="feetable" >
+                                    <th>The Fee Dues</th>
+                            </table>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        
+                
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+            const display = $("#display"); 
+            const result1 = $("#firstsem"); 
+            const result2 = $("#secondsem"); 
+            const result3 = $("#thirdsem"); 
+            const result4 = $("#fourthsem"); 
+            const result5 = $("#fifthsem"); 
+            const result6 = $("#sixthsem"); 
+            const result7 = $("#seventhsem"); 
+            const result8 = $("#eightsem"); 
+            const dtable = $('#distable'); 
+            const ftable = $('#feetable');
+            const atable = $('#actable');
+            const supply = {};
+            const regular = {};
+            const res_each = {};
+            const reg_each = {};
+            const supply_year = {};
+            const subjects = {};
+            const behave = {};
+            const total = {};
+            const total2 = {};
+            let show = false;
+            function showDiv(sem,e)
+            {
+
+                document.getElementById(sem).style.top =  e.y ;
+                document.getElementById(sem).style.left =  e.x ;
+                document.getElementById(sem).style.display = "block";
+            }
+            const getdetails = ()=>{
+                const rollno = document.getElementById("roll_no").value;
+                
+                document.getElementById("roll_no").value="";
+                document.getElementById("content").style.display = "block";
+                document.getElementById("markshead").style.display = "block";
+                document.getElementById("alltables").style.display = "block";
+                //document.getElementById("dishead").style.display = "block";
+                //document.getElementById("feehead").style.display = "block";
+                //document.getElementById("achead").style.display = "block";
+                
+                fetch('/getdetails',{method : "get"}).then((response)=>{
+                    return response.json();
+                }).then((data)=>{
+                    console.log(data);
+                    displaydetails(data,rollno);
+                });
+            }
+            const buildIDS = (details)=>{
+                return {
+                    listItemID: "listItem_" + details._id,
+                    detailsID : "details_" + details._id
+                }
+            }
+            const buildTemplate = (details,ids)=>{
+                return `<li class="list-group-item" id="${ids.listItemID}">
+                            <div class="row">
+                                <div class="col" id="${ids.detailsID}"><h6>Name :</h6></div>
+                                <div class="col" id="${ids.detailsID}">${details.name}</div>
+                                
+                            
+                                <div class="col" id="${ids.detailsID}"><h6>Roll Number :</h6></div>
+                                <div class="col" id="${ids.detailsID}">${details.rollno}</div>
+                                
+                                <div class="col" id="${ids.detailsID}"><h6>Year :</h6></div>
+                                <div class="col" id="${ids.detailsID}">${details.class}</div>
+                                
+                            
+                                <div class="col" id="${ids.detailsID}"><h6>Branch :</h6></div>
+                                <div class="col" id="${ids.detailsID}">${details.branch}</div>
+                                
+                            </div>
+                       </li>`;
+            }
+            const buildTemp = (string,data)=>{
+                
+                return `<tr >
+                        <td colspan="4" >${string} : ${data}</td>
+                        </tr>`;
+            }
+            const builds=(course,data,attempts,year)=>{
+                
+                return `<tr>
+                        <td >${course}</td>
+                        <td >${data} </td>
+                        <td >${attempts}</td>
+                        <td >${year}</td>
+                        </tr>`;
+            }
+            const displaydetails = (data,rollno)=>{
+                data.forEach((details)=>{
+                    if(details.rollno == rollno){
+                        
+                    //$('#content').prepend('<img id="theImg" src="theImg.png" />')
+                    let ids = buildIDS(details);
+                    if(details.name != undefined){
+                    display.append(buildTemplate(details,ids));
+                    $('<img />').attr({
+                        'id': 'myImage',
+                        'src': details.photo,
+                        'alt': 'PHOTO',
+                        'height':100,   
+                        'width': 100,
+                  }).appendTo('#content');
+                  ftable.append(`<tr >
+                        <td colspan="4" > ${details.feedue}</td>
+                        </tr>`);
+                    dtable.append(`<tr >
+                        <td colspan="4" > ${details.disciplinary}</td>
+                        </tr>`);
+                    atable.append(`<tr >
+                        <td colspan="4" > ${details.achievements}</td>
+                        </tr>`);
+                }
+                    
+                    else if(details.behaviour !=undefined)
+                    {
+                         behave[details.semester] = details.behaviour ;
+                    }
+                    else if(details.course_name != undefined)
+                    {
+                        course = details.course_name ;
+                        sem = details.semester ;
+                        if(subjects[sem]==undefined)
+                        {
+                            subjects[sem]=[];
+                            subjects[sem][0]=course;
+                        }
+                        else
+                        {
+                            flag = 0
+                            subjects[sem].forEach((data)=>{
+                                if(data == course)
+                                flag=1;
+                            });
+                            if(flag!=1)
+                            {
+                                let len = 0;
+                                subjects[sem].forEach((data)=>{len+=1}) ;
+                                subjects[sem][len] = course;
+                            }
+                        }
+                        if(details.name_of_exam == "supply" || details.grade == "F" )
+                        { 
+                            course = details.course_name ;
+                            if(details.grade !="F"){
+                                supply_year[course]=details.year;
+                                res_each[course]="P";
+                            }
+                            else
+                            {
+                               res_each[course]="F";
+                               supply_year[course]="Yet to pass";
+                            }
+                            if(supply[course] == undefined )
+                            {
+                                supply[course]=[];
+                                supply[course][0]=details.grade;
+                            }
+                            else
+                            {
+                                let len = 0;
+                                supply[course].forEach((data)=>{len+=1}) ;
+                                supply[course][len] = details.grade;
+                            }
+                        }
+                        else if (details.name_of_exam == "regular") {
+                            course = details.course_name ;
+                            regular[course]=[];
+                            regular[course]=details.grade;
+                            if(details.grade !="F")
+                            reg_each[course]="P";
+                            else
+                            reg_each[course]="F";
+                            if(details.grade !="F")
+                            supply_year[course]=details.year;
+                            else
+                            supply_year[course]="Yet to pass";
+                        } 
+                    }
+                    else if(details.sgpa!=undefined)
+                    {
+                        total[details.semester]=details.sgpa ;
+                        total2[details.semester]=details.cgpa ;
+                    }
+                    }
+                });
+                for(i=1;i<9;i++)
+                if(subjects[""+i]!=undefined)
+                document.getElementById('semester'+i).style.display = "block";
+                $.each(subjects, function(sem,subj) {
+                     subj.forEach((index)=>{
+                           if(regular[index]!=undefined)
+                           eval("result" + sem).append(builds(index, regular[index],1,supply_year[index]));
+                           else
+                           eval("result" + sem).append(builds(index, supply[index],supply[index].length ,supply_year[index]));
+                        
+                     });
+
+                });
+                for(i=1;i<9;i++)
+                eval("result" + i).append(buildTemp("Disciplinary Action",behave[""+i]));
+                for(i=1;i<9;i++)
+                eval("result" + i).append(buildTemp("SGPA",total[""+i]));
+                for(i=1;i<9;i++)
+                eval("result" + i).append(buildTemp("CGPA",total2[""+i]));
+                
+            }
+
+
+    </script>
+</body>
+</html>
